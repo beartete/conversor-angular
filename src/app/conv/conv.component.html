@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="input-group mb-4">
+          <div ngbDropdown class="d-inline-block">
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="primeiroNumero" (click)="limpar()">
+              <option selected Disabled>Medida de entrada</option>
+              <option value="1">Milímetros</option>
+              <option value="3">Centímetros</option>
+              <option value="2">Metros</option>
+            </select>
+          </div>
+          <input type="number" class="form-control p-3" aria-label="Text input with dropdown button " [(ngModel)]="primeiroNumero" (keyup)="converter()" placeholder="0">
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="input-group mb-4">
+          <div ngbDropdown class="d-inline-block">
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="segundoNumero" (click)="limpar()">
+              <option selected Disabled>Medida de saída</option>
+              <option value="1">Milímetros</option>
+              <option value="3">Centímetros</option>
+              <option value="2">Metros</option>
+            </select>
+          </div>
+          <input type="number" class="form-control p-3" aria-label="Text input with dropdown button" [(ngModel)]="primeiroNumero" (keyup)='selectedOption1' placeholder="0">

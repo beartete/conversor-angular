@@ -6,30 +6,35 @@ import { Component } from '@angular/core';
   styleUrls: ['./conv.component.css']
 })
 export class ConvComponent {
-  selectedOption1: string = '';
-  primeiroNumero: number = 0;
-  segundoNumero: number = 0;
-  resultado: number = 0;
+  inputValue: number = 0;
+  fromUnit: string = '';
+  toUnit: string = '';
+  convertedValue: number = 0;
 
-  limpar() {
-    this.resultado = 0;
-    this.segundoNumero = 0;
-  }
-
-  converter() {
-    switch (this.selectedOption1) {
-      case '1':
-        this.segundoNumero = this.primeiroNumero * 1000;
-        break;
-      case '2':
-        this.segundoNumero = this.primeiroNumero / 100;
-        break;
-      case '3':
-        this.segundoNumero = this.primeiroNumero * 10;
-        break;
-      default:
-        this.segundoNumero = 0;
-        break;
+  convert(): void {
+    if (this.inputValue && this.fromUnit && this.toUnit) {
+      if (this.fromUnit === 'cm' && this.toUnit === 'm') {
+        this.convertedValue = this.inputValue / 100;
+      } else if (this.fromUnit === 'cm' && this.toUnit === 'km') {
+        this.convertedValue = this.inputValue / 100000;
+      } else if (this.fromUnit === 'm' && this.toUnit === 'cm') {
+        this.convertedValue = this.inputValue * 100;
+      } else if (this.fromUnit === 'm' && this.toUnit === 'km') {
+        this.convertedValue = this.inputValue / 1000;
+      } else if (this.fromUnit === 'km' && this.toUnit === 'cm') {
+        this.convertedValue = this.inputValue * 100000;
+      } else if (this.fromUnit === 'km' && this.toUnit === 'm') {
+        this.convertedValue = this.inputValue * 1000;
+      } else {
+        // Unidades de medida inválidas
+        this.convertedValue = 0;
+      }
     }
+  }
+  limpar() {
+    this.inputValue = 0;
+    this.fromUnit = '';
+    this.toUnit = '';
+    this.convertedValue = 0;
   }
 }

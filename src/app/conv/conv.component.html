@@ -1,26 +1,32 @@
-<div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="input-group mb-4">
-          <div ngbDropdown class="d-inline-block">
-            <select class="form-select" aria-label="Default select example" [(ngModel)]="primeiroNumero" (click)="limpar()">
-              <option selected Disabled>Medida de entrada</option>
-              <option value="1">Milímetros</option>
-              <option value="3">Centímetros</option>
-              <option value="2">Metros</option>
+<div>
+   
+    <div class="box">
+        <h1>Conversor de Medidas</h1>
+        <form>
+          <div>
+            <select id="fromUnit" name="fromUnit" [(ngModel)]="fromUnit">
+              <option value="cm">Centímetros</option>
+              <option value="m">Metros</option>
+              <option value="km">Quilômetros</option>
             </select>
+             <br>
+             <br>
+            <input type="number" id="inputValue" name="inputValue" [(ngModel)]="inputValue">
           </div>
-          <input type="number" class="form-control p-3" aria-label="Text input with dropdown button " [(ngModel)]="primeiroNumero" (keyup)="converter()" placeholder="0">
-        </div>
+      <br>
+          <div>
+            <select id="toUnit" name="toUnit" [(ngModel)]="toUnit">
+              <option value="cm">Centímetros</option>
+              <option value="m">Metros</option>
+              <option value="km">Quilômetros</option>
+            </select>
+            <br>
+            <br>
+            <input type="number" id="convertedValue" name="convertedValue" [(ngModel)]="convertedValue" readonly>
+          </div>
+          <br>
+          <button type="button" (click)="convert()">Converter</button>
+          <br>
+          <button type="button" (click)="limpar()">Limpar(C)</button>
+        </form>
       </div>
-      <div class="col-12">
-        <div class="input-group mb-4">
-          <div ngbDropdown class="d-inline-block">
-            <select class="form-select" aria-label="Default select example" [(ngModel)]="segundoNumero" (click)="limpar()">
-              <option selected Disabled>Medida de saída</option>
-              <option value="1">Milímetros</option>
-              <option value="3">Centímetros</option>
-              <option value="2">Metros</option>
-            </select>
-          </div>
-          <input type="number" class="form-control p-3" aria-label="Text input with dropdown button" [(ngModel)]="primeiroNumero" (keyup)='selectedOption1' placeholder="0">
